@@ -21,9 +21,10 @@ export class Form extends React.Component {
             body: JSON.stringify(this.state.userInput)
         }).then(response => {
             return response.json()
-        }).then(data => console.log(data))
-        // then(json => {
-        //     this.setState({output: json[0]})
+        }).
+        then(json => {
+            this.setState({output: json[0]})
+        })
     }
 
     render() {

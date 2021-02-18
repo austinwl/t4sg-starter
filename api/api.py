@@ -8,7 +8,7 @@ def index():
 	return {
 		'name': 'Hello World'
 	}
-åå
+
 @app.route('/reverse', methods=['GET', 'POST'])
 def reverse():
 	if request.method == 'POST':
