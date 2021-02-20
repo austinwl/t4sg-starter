@@ -1,5 +1,5 @@
 import time
-from flask import Flask, request, session, jsonify, redirect, render_template
+from flask import Flask, request, jsonify, redirect, render_template
 
 app = Flask(__name__)
 
@@ -9,14 +9,17 @@ def index():
 		'name': 'Hello World'
 	}
 
-@app.route('/reverse', methods=['GET', 'POST'])
+@app.route('/reverse', methods=['POST'])
 def reverse():
 	if request.method == 'POST':
-		string = request.json
-		return string
+		req = request.json
+		rev_string = req["name"][::-1]
+		req["name"] = rev_string
+		print(req["name"])
+		return jsonify(name=req)
 	if request.method == 'GET':
 		return {
-			'good': 'morning'
+			'test': 'test'
 		}
 
 @app.route('/time')
